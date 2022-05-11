@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Impede a listagem de arquivos e diretórios
+Options All -Indexes
+
+# ROUTER - Redireciona para www.*
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ROUTER HTTPS - Redireciona para https://
+#RewriteCond %{HTTP:X-Forwarded-Proto} !https
+#RewriteCond %{HTTPS} off 
+#RewriteRule ^https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ROUTER URL - Define o ponte de partida para o processamento de rotas
+RewriteCond %{SCRIPT_FILENAME} !-f 
+RewriteCond %{SCRIPT_FILENAME} !-d 
+RewriteRule ^(.*)$ index.php?route=/$1
