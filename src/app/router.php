@@ -48,6 +48,16 @@ $router->get("/", "Admin:home");
 $router->group("ops");
 $router->get("/{errcode}", "Web:error");
 
+/*
+* SEEDERS
+*/
+$router->group("seed");
+$router->get("/posts", function ($data) {
+  require_once __DIR__ . '/../database/seeders/postSeeder.php';
+});
+$router->get("/users", function ($data) {
+  require_once __DIR__ . '/../database/seeders/userSeeder.php';
+});
 
 $router->dispatch();
 
