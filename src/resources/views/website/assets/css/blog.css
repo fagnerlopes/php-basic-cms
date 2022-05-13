@@ -1,0 +1,47 @@
+.blog-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-card {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.post-card img {
+  border-radius: 5px;
+}
+
+.post-title {
+  margin-top: 20px;
+}
+
+.post-description {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.paginator {
+  display: flex;
+  justify-content: center;
+}
+
+.paginator_item {
+  width: 45px;
+  height: 45px;
+  background-color: #ccc;
+  color: #000;
+  text-align: center;
+  line-height: 45px;
+}
+
+.paginator_active {
+  background-color: cornflowerblue;
+  color: #fff;
+}

@@ -2,6 +2,8 @@
 
 define('URL_BASE', 'http://localhost:8090');
 
+define('SITE', "MVC");
+
 define('DATA_LAYER_CONFIG', [
   "driver" => "mysql",
   "host" => "mysql",

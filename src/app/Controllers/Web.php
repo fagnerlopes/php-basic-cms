@@ -3,39 +3,33 @@
 namespace App\Controllers;
 
 use App\Models\User;
+use League\Plates\Engine;
 
 class Web 
 {
-  public function home($data) {
-    echo "<h1>Home</h1>";
-    // $user = new User();
-    // $list = $user->find()->fetch(true);
+  private $view;
 
-    // var_dump($list);
+  public function __construct()
+  {
+    $this->view = new Engine(__DIR__ . "/../../resources/views/website");
   }
 
-  public function blog($data) {
-    echo "<h1>Blog</h1>";
-    require __DIR__ . "/../../resources/views/website/blog.php";
+  public function home(array $data): void
+  {
+    $users = (new User())->find()->fetch(true);
+    echo $this->view->render("home", [
+      "title" => "Home | " . SITE,
+      "users" => $users
+    ]);
   }
 
-  public function post($data) {
-    echo "<h1>Artigo</h1>";
-  }
-
-  public function category($data) {
-    echo "<h1>Categoria</h1>";
-  }
-
-  public function contact($data) {
+  public function contact(array $data): void
+  {
     echo "<h1>Contato</h1>";
-    $url = URL_BASE . "/contato";
-    require __DIR__ . "/../../resources/views/website/contact.php";
-
   }
 
-  public function error($data) {
+  public function error(array $data): void
+  {
     echo "<h1>Erro {$data['errcode']}</h1>";
-    var_dump($data);
   }
 }

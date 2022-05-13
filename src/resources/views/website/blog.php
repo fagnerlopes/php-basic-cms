@@ -13,11 +13,12 @@ $paginator->pager($post->find()->count(), 3, $page, 2);
 
 $posts = $post->find()->limit($paginator->limit())->offset($paginator->offset())->fetch(true);
 
-echo "<link rel='stylesheet' href='../../resources/css/style.css'>";
+echo "<link rel='stylesheet' href='../../resources/css/global.css'>";
+echo "<link rel='stylesheet' href='../../resources/css/blog.css'>";
 
 
 
-echo "<div class='container'>";
+echo "<div class='blog-container'>";
 echo "<p>Página {$paginator->page()} de {$paginator->pages()}</p>";
 
 if($posts) {
